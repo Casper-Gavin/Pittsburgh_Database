@@ -2,6 +2,7 @@ import psycopg
 import datetime
 
 
+
 class ModelNeighborhood:    
     def __init__(self):
         self.dataList = []

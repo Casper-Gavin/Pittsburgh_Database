@@ -2,6 +2,7 @@ from ModelNeighborhood import ModelNeighborhood
 import psycopg
 import datetime
 
+
 def main():
     password = input("Input PostgreSQL password: ")
     model = ModelNeighborhood()
