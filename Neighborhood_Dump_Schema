@@ -1,0 +1,254 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.2
+-- Dumped by pg_dump version 16.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: aggregate_income; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.aggregate_income (
+    neighborhood_name character varying(100) NOT NULL,
+    id_name integer NOT NULL,
+    income integer,
+    margin_error numeric(10,0)
+);
+
+
+ALTER TABLE public.aggregate_income OWNER TO postgres;
+
+--
+-- Name: TABLE aggregate_income; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public.aggregate_income IS 'aggregate_household_income';
+
+
+--
+-- Name: race_income; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.race_income (
+    neighborhood character varying(100) NOT NULL,
+    id integer NOT NULL,
+    population numeric(10,0),
+    white_only_population numeric(10,0),
+    black_only_population numeric(10,0)
+);
+
+
+ALTER TABLE public.race_income OWNER TO postgres;
+
+--
+-- Name: TABLE race_income; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public.race_income IS 'race';
+
+
+--
+-- Name: retirement_income; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.retirement_income (
+    neighborhood character varying(100) NOT NULL,
+    id integer NOT NULL,
+    total_income numeric(5,0),
+    retirement_income numeric(5,0),
+    no_retirement_income numeric(5,0)
+);
+
+
+ALTER TABLE public.retirement_income OWNER TO postgres;
+
+--
+-- Name: TABLE retirement_income; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public.retirement_income IS 'retirement-income-in';
+
+
+--
+-- Name: self_employment_income; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.self_employment_income (
+    neighborhood character varying(100) NOT NULL,
+    id integer NOT NULL,
+    total_income numeric(5,0),
+    with_self_income numeric(5,0),
+    no_self_income numeric(5,0)
+);
+
+
+ALTER TABLE public.self_employment_income OWNER TO postgres;
+
+--
+-- Name: TABLE self_employment_income; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public.self_employment_income IS 'self-employment-income';
+
+
+--
+-- Name: total_population; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.total_population (
+    neighborhood character varying(100) NOT NULL,
+    id integer NOT NULL,
+    total_pop numeric(5,0),
+    margin_error_total numeric(5,0)
+);
+
+
+ALTER TABLE public.total_population OWNER TO postgres;
+
+--
+-- Name: TABLE total_population; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public.total_population IS 'total-population';
+
+
+--
+-- Name: aggregate_income aggregate_household_income_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.aggregate_income
+    ADD CONSTRAINT aggregate_household_income_pkey PRIMARY KEY (neighborhood_name, id_name);
+
+
+--
+-- Name: aggregate_income aggregate_income_id_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.aggregate_income
+    ADD CONSTRAINT aggregate_income_id_name_key UNIQUE (id_name);
+
+
+--
+-- Name: aggregate_income aggregate_income_neighborhood_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.aggregate_income
+    ADD CONSTRAINT aggregate_income_neighborhood_name_key UNIQUE (neighborhood_name);
+
+
+--
+-- Name: race_income race_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.race_income
+    ADD CONSTRAINT race_pkey PRIMARY KEY (neighborhood, id);
+
+
+--
+-- Name: retirement_income retirement_income_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.retirement_income
+    ADD CONSTRAINT retirement_income_pkey PRIMARY KEY (neighborhood, id);
+
+
+--
+-- Name: self_employment_income self_employment_income_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.self_employment_income
+    ADD CONSTRAINT self_employment_income_pkey PRIMARY KEY (neighborhood, id);
+
+
+--
+-- Name: total_population total_population_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.total_population
+    ADD CONSTRAINT total_population_pkey PRIMARY KEY (neighborhood, id);
+
+
+--
+-- Name: retirement_income retirement_income_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.retirement_income
+    ADD CONSTRAINT retirement_income_id_fkey FOREIGN KEY (id) REFERENCES public.aggregate_income(id_name) NOT VALID;
+
+
+--
+-- Name: retirement_income retirement_income_neighborhood_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.retirement_income
+    ADD CONSTRAINT retirement_income_neighborhood_fkey FOREIGN KEY (neighborhood) REFERENCES public.aggregate_income(neighborhood_name) NOT VALID;
+
+
+--
+-- Name: self_employment_income self_employment_income_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.self_employment_income
+    ADD CONSTRAINT self_employment_income_id_fkey FOREIGN KEY (id) REFERENCES public.aggregate_income(id_name) NOT VALID;
+
+
+--
+-- Name: self_employment_income self_employment_income_neighborhood_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.self_employment_income
+    ADD CONSTRAINT self_employment_income_neighborhood_fkey FOREIGN KEY (neighborhood) REFERENCES public.aggregate_income(neighborhood_name) NOT VALID;
+
+
+--
+-- Name: total_population total_population_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.total_population
+    ADD CONSTRAINT total_population_id_fkey FOREIGN KEY (id) REFERENCES public.aggregate_income(id_name) NOT VALID;
+
+
+--
+-- Name: total_population total_population_neighborhood_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.total_population
+    ADD CONSTRAINT total_population_neighborhood_fkey FOREIGN KEY (neighborhood) REFERENCES public.aggregate_income(neighborhood_name) NOT VALID;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

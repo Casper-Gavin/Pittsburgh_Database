@@ -1,0 +1,522 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.2
+-- Dumped by pg_dump version 16.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Data for Name: aggregate_income; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.aggregate_income (neighborhood_name, id_name, income, margin_error) FROM stdin;
+Allegheny Center	1	39947000	6437773
+Allegheny West	2	23793300	22025939
+Allentown	3	38303700	7490207
+Arlington	4	35349900	6140663
+Arlington Heights	5	2389600	1162393
+Banksville	6	138084700	25839799
+Bedford Dwellings	7	10529100	1666825
+Beechview	8	193055900	20558894
+Beltzhoover	9	28121300	6955896
+Bloomfield	10	249898900	17631531
+Bluff	11	11005200	3053715
+Bon Air	12	22093100	4363955
+Brighton Heights	13	201692800	18528010
+Brookline	14	366945900	33459110
+California-Kirkbride	15	10718900	2850114
+Carrick	16	221221100	25358377
+Central Business District	17	210460000	38813243
+Central Lawrenceville	18	144917900	14971960
+Central Northside	19	96353500	14187903
+Central Oakland	20	55528300	8248328
+Chartiers City	21	13805200	4387080
+Chateau	22	\N	\N
+Crafton Heights	23	89278600	14312490
+Crawford-Roberts	24	34226600	7964969
+Duquesne Heights	25	91613300	18318438
+East Allegheny	26	56433100	9846049
+East Carnegie	27	14945000	4062628
+East Hills	28	41528200	7871752
+East Liberty	29	115711700	16575789
+Elliott	30	43215900	8110202
+Esplen	31	5433900	2379084
+Fairywood	32	33908400	8418356
+Fineview	33	25475500	7391479
+Friendship	34	47475400	8631431
+Garfield	35	67632800	16399392
+Glen Hazel	36	4773300	2914988
+Greenfield	37	241377900	26174704
+Hays	38	6432200	1912520
+Hazelwood	39	75829000	13563882
+Highland Park	40	242405400	35463933
+Homewood North	41	37727300	7125086
+Homewood South	42	29434400	4468175
+Homewood West	43	11290000	2726332
+Knoxville	44	60537300	11423845
+Larimer	45	18139300	3363491
+Lincoln Place	46	84551900	12450241
+Lincoln-Lemington-Belmar	47	91032900	15513365
+Lower Lawrenceville	48	63562900	9964615
+Manchester	49	54372200	15557378
+Marshall-Shadeland	50	68871800	10291350
+Middle Hill	51	27566200	5776017
+Morningside	52	87871100	11202093
+Mount Oliver Borough	53	61592000	18596384
+Mount Washington	54	267100700	26611655
+Mt. Oliver	55	13962700	3748518
+New Homestead	56	27062600	3763271
+North Oakland	57	123408700	20564747
+North Shore	58	12397000	4415906
+Northview Heights	59	8755000	2398522
+Oakwood	60	25014900	4076094
+Overbrook	61	90146300	10295987
+Perry North	62	104107900	12948264
+Perry South	63	54989600	8757092
+Point Breeze	64	314958500	30291428
+Point Breeze North	65	59572300	9198291
+Polish Hill	66	38888900	6374408
+Regent Square	67	52288700	8704589
+Ridgemont	68	7893900	2639357
+Shadyside	69	605635700	62416084
+Sheraden	70	101081700	11670389
+South Oakland	71	47722300	10823398
+South Shore	72	\N	\N
+South Side Flats	73	233098400	31279287
+South Side Slopes	74	123648400	18884639
+Spring Garden	75	15833800	2941611
+Spring Hill-City View	76	46688500	9345350
+Squirrel Hill North	77	577467500	66363784
+Squirrel Hill South	78	659886300	57908445
+St. Clair	79	3867600	1527597
+Stanton Heights	80	134047100	15607514
+Strip District	81	91738300	37240188
+Summer Hill	82	40337500	8808166
+Swisshelm Park	83	43095600	4652129
+Terrace Village	84	16879300	3672344
+Troy Hill	85	77521600	22171206
+Upper Hill	86	39512800	12264473
+Upper Lawrenceville	87	65738500	16007126
+West End	88	3615800	2204875
+West Oakland	89	16339500	3412753
+Westwood	90	91857100	11304497
+Windgap	91	34609300	6432817
+Berkley	92	56300	345
+\.
+
+
+--
+-- Data for Name: race_income; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.race_income (neighborhood, id, population, white_only_population, black_only_population) FROM stdin;
+Allegheny Center	1	1411	832	329
+Allegheny West	2	343	294	15
+Allentown	3	2558	1307	1018
+Arlington	4	1852	1427	397
+Arlington Heights	5	272	64	173
+Banksville	6	3858	3024	240
+Bedford Dwellings	7	1349	56	1247
+Beechview	8	8078	6478	1208
+Beltzhoover	9	1702	98	1453
+Bloomfield	10	8669	7484	650
+Bluff	11	6294	4384	1435
+Bon Air	12	920	829	14
+Brighton Heights	13	7421	5398	1728
+Brookline	14	13160	11569	612
+California-Kirkbride	15	803	177	597
+Carrick	16	10122	7962	1336
+Central Business District	17	4060	3174	401
+Central Lawrenceville	18	4775	4153	356
+Central Northside	19	2892	1611	1051
+Central Oakland	20	5822	4792	327
+Chartiers City	21	560	40	420
+Chateau	22	3	3	0
+Crafton Heights	23	3964	2520	1239
+Crawford-Roberts	24	2225	216	1764
+Duquesne Heights	25	2522	2426	46
+East Allegheny	26	2095	1400	609
+East Carnegie	27	610	443	156
+East Hills	28	2859	161	2552
+East Liberty	29	5537	1755	3250
+Elliott	30	2491	1580	659
+Esplen	31	309	264	22
+Fairywood	32	1181	890	214
+Fineview	33	1270	310	922
+Friendship	34	1840	1162	231
+Garfield	35	3966	593	3060
+Glen Hazel	36	716	205	511
+Greenfield	37	7690	6810	435
+Hays	38	405	332	18
+Hazelwood	39	4257	2211	1792
+Highland Park	40	6810	4652	1712
+Homewood North	41	3371	38	3193
+Homewood South	42	2276	93	2083
+Homewood West	43	850	5	756
+Knoxville	44	4255	1234	2498
+Larimer	45	1641	174	1427
+Lincoln Place	46	3499	3499	0
+Lincoln-Lemington-Belmar	47	4955	658	3807
+Lower Lawrenceville	48	2572	1996	367
+Manchester	49	1944	590	1282
+Marshall-Shadeland	50	6195	3166	2583
+Middle Hill	51	1760	216	1453
+Morningside	52	3262	2693	392
+Mount Oliver Borough	53	3399	1973	1113
+Mount Washington	54	8743	7567	912
+Mt. Oliver	55	598	341	236
+New Homestead	56	973	820	76
+North Oakland	57	9602	6739	924
+North Shore	58	205	184	0
+Northview Heights	59	1545	46	1471
+Oakwood	60	1058	949	41
+Overbrook	61	3682	3411	132
+Perry North	62	3771	2382	1226
+Perry South	63	3398	1208	2094
+Point Breeze	64	5414	4737	270
+Point Breeze North	65	1732	1019	681
+Polish Hill	66	1331	1209	85
+Regent Square	67	1033	1013	0
+Ridgemont	68	314	245	32
+Shadyside	69	13562	9458	593
+Sheraden	70	5684	2617	2633
+South Oakland	71	2921	2112	360
+South Shore	72	12	12	0
+South Side Flats	73	6292	5859	154
+South Side Slopes	74	4583	4255	181
+Spring Garden	75	840	659	99
+Spring Hill-City View	76	2456	1455	823
+Squirrel Hill North	77	11336	8719	612
+Squirrel Hill South	78	16042	13056	301
+St. Clair	79	270	111	153
+Stanton Heights	80	4761	2595	1935
+Strip District	81	747	621	59
+Summer Hill	82	1191	978	206
+Swisshelm Park	83	1345	1221	55
+Terrace Village	84	2292	912	1175
+Troy Hill	85	2283	1846	322
+Upper Hill	86	1884	276	1403
+Upper Lawrenceville	87	2754	2236	337
+West End	88	235	162	29
+West Oakland	89	1717	635	885
+Westwood	90	3537	2663	190
+Windgap	91	1534	922	559
+Berkley	92	4000	2000	1000
+\.
+
+
+--
+-- Data for Name: retirement_income; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.retirement_income (neighborhood, id, total_income, retirement_income, no_retirement_income) FROM stdin;
+Allegheny Center	1	870	124	746
+Allegheny West	2	146	20	126
+Allentown	3	1069	99	970
+Arlington	4	701	111	590
+Arlington Heights	5	144	0	144
+Banksville	6	1946	318	1628
+Bedford Dwellings	7	723	32	691
+Beechview	8	3567	620	2947
+Beltzhoover	9	848	204	644
+Bloomfield	10	4571	508	4063
+Bluff	11	240	39	201
+Bon Air	12	372	77	295
+Brighton Heights	13	3222	566	2656
+Brookline	14	5843	1246	4597
+California-Kirkbride	15	333	49	284
+Carrick	16	4301	860	3441
+Central Business District	17	1968	160	1808
+Central Lawrenceville	18	2338	376	1962
+Central Northside	19	1479	181	1298
+Central Oakland	20	1903	99	1804
+Chartiers City	21	271	88	183
+Chateau	22	3	3	0
+Crafton Heights	23	1677	229	1448
+Crawford-Roberts	24	1125	206	919
+Duquesne Heights	25	1170	207	963
+East Allegheny	26	1302	114	1188
+East Carnegie	27	264	36	228
+East Hills	28	1325	295	1030
+East Liberty	29	2902	340	2562
+Elliott	30	953	141	812
+Esplen	31	142	14	128
+Fairywood	32	428	28	400
+Fineview	33	624	128	496
+Friendship	34	1074	23	1051
+Garfield	35	1571	262	1309
+Glen Hazel	36	241	23	218
+Greenfield	37	3438	544	2894
+Hays	38	185	23	162
+Hazelwood	39	1870	349	1521
+Highland Park	40	2977	560	2417
+Homewood North	41	1210	243	967
+Homewood South	42	1082	170	912
+Homewood West	43	392	138	254
+Knoxville	44	1510	264	1246
+Larimer	45	652	147	505
+Lincoln Place	46	1460	387	1073
+Lincoln-Lemington-Belmar	47	1959	399	1560
+Lower Lawrenceville	48	1257	147	1110
+Manchester	49	984	167	817
+Marshall-Shadeland	50	1565	297	1268
+Middle Hill	51	926	53	873
+Morningside	52	1534	210	1324
+Mount Oliver Borough	53	1465	130	1335
+Mount Washington	54	4385	663	3722
+Mt. Oliver	55	261	34	227
+New Homestead	56	379	111	268
+North Oakland	57	2972	376	2596
+North Shore	58	154	9	145
+Northview Heights	59	510	18	492
+Oakwood	60	552	93	459
+Overbrook	61	1594	332	1262
+Perry North	62	1625	239	1386
+Perry South	63	1630	250	1380
+Point Breeze	64	2342	391	1951
+Point Breeze North	65	996	89	907
+Polish Hill	66	710	121	589
+Regent Square	67	476	89	387
+Ridgemont	68	162	23	139
+Shadyside	69	7484	553	6931
+Sheraden	70	2202	262	1940
+South Oakland	71	1155	80	1075
+South Shore	72	8	0	8
+South Side Flats	73	3311	353	2958
+South Side Slopes	74	1988	321	1667
+Spring Garden	75	397	54	343
+Spring Hill-City View	76	1080	216	864
+Squirrel Hill North	77	3370	554	2816
+Squirrel Hill South	78	7211	723	6488
+St. Clair	79	101	20	81
+Stanton Heights	80	2056	480	1576
+Strip District	81	520	35	485
+Summer Hill	82	517	118	399
+Swisshelm Park	83	577	131	446
+Terrace Village	84	831	117	714
+Troy Hill	85	1158	154	1004
+Upper Hill	86	942	225	717
+Upper Lawrenceville	87	1287	133	1154
+West End	88	99	11	88
+West Oakland	89	630	81	549
+Westwood	90	1492	309	1183
+Windgap	91	647	173	474
+Berkley	92	6000	1000	500
+\.
+
+
+--
+-- Data for Name: self_employment_income; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.self_employment_income (neighborhood, id, total_income, with_self_income, no_self_income) FROM stdin;
+Allegheny Center	1	870	36	834
+Allegheny West	2	146	22	124
+Allentown	3	1069	12	1057
+Arlington	4	701	28	673
+Arlington Heights	5	144	0	144
+Banksville	6	1946	121	1825
+Bedford Dwellings	7	723	0	723
+Beechview	8	3567	143	3424
+Beltzhoover	9	848	10	838
+Bloomfield	10	4571	345	4226
+Bluff	11	240	7	233
+Bon Air	12	372	33	339
+Brighton Heights	13	3222	271	2951
+Brookline	14	5843	418	5425
+California-Kirkbride	15	333	19	314
+Carrick	16	4301	238	4063
+Central Business District	17	1968	221	1747
+Central Lawrenceville	18	2338	272	2066
+Central Northside	19	1479	107	1372
+Central Oakland	20	1903	145	1758
+Chartiers City	21	271	22	249
+Chateau	22	3	0	3
+Crafton Heights	23	1677	121	1556
+Crawford-Roberts	24	1125	29	1096
+Duquesne Heights	25	1170	42	1128
+East Allegheny	26	1302	94	1208
+East Carnegie	27	264	23	241
+East Hills	28	1325	19	1306
+East Liberty	29	2902	221	2681
+Elliott	30	953	95	858
+Esplen	31	142	14	128
+Fairywood	32	428	27	401
+Fineview	33	624	22	602
+Friendship	34	1074	37	1037
+Garfield	35	1571	94	1477
+Glen Hazel	36	241	0	241
+Greenfield	37	3438	431	3007
+Hays	38	185	8	177
+Hazelwood	39	1870	34	1836
+Highland Park	40	2977	354	2623
+Homewood North	41	1210	68	1142
+Homewood South	42	1082	32	1050
+Homewood West	43	392	0	392
+Knoxville	44	1510	91	1419
+Larimer	45	652	23	629
+Lincoln Place	46	1460	140	1320
+Lincoln-Lemington-Belmar	47	1959	55	1904
+Lower Lawrenceville	48	1257	90	1167
+Manchester	49	984	107	877
+Marshall-Shadeland	50	1565	67	1498
+Middle Hill	51	926	14	912
+Morningside	52	1534	171	1363
+Mount Oliver Borough	53	1465	33	1432
+Mount Washington	54	4385	377	4008
+Mt. Oliver	55	261	26	235
+New Homestead	56	379	25	354
+North Oakland	57	2972	147	2825
+North Shore	58	154	0	154
+Northview Heights	59	510	11	499
+Oakwood	60	552	12	540
+Overbrook	61	1594	94	1500
+Perry North	62	1625	123	1502
+Perry South	63	1630	127	1503
+Point Breeze	64	2342	404	1938
+Point Breeze North	65	996	120	876
+Polish Hill	66	710	73	637
+Regent Square	67	476	49	427
+Ridgemont	68	162	0	162
+Shadyside	69	7484	517	6967
+Sheraden	70	2202	74	2128
+South Oakland	71	1155	78	1077
+South Shore	72	8	0	8
+South Side Flats	73	3311	204	3107
+South Side Slopes	74	1988	206	1782
+Spring Garden	75	397	0	397
+Spring Hill-City View	76	1080	68	1012
+Squirrel Hill North	77	3370	661	2709
+Squirrel Hill South	78	7211	1021	6190
+St. Clair	79	101	0	101
+Stanton Heights	80	2056	196	1860
+Strip District	81	520	54	466
+Summer Hill	82	517	27	490
+Swisshelm Park	83	577	73	504
+Terrace Village	84	831	45	786
+Troy Hill	85	1158	80	1078
+Upper Hill	86	942	66	876
+Upper Lawrenceville	87	1287	132	1155
+West End	88	99	14	85
+West Oakland	89	630	12	618
+Westwood	90	1492	86	1406
+Windgap	91	647	28	619
+Berkley	92	6000	3000	1000
+\.
+
+
+--
+-- Data for Name: total_population; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.total_population (neighborhood, id, total_pop, margin_error_total) FROM stdin;
+Allegheny Center	1	1411	196
+Allegheny West	2	343	96
+Allentown	3	2558	450
+Arlington	4	1852	348
+Arlington Heights	5	272	126
+Banksville	6	3858	581
+Bedford Dwellings	7	1349	180
+Beechview	8	8078	720
+Beltzhoover	9	1702	343
+Bloomfield	10	8669	491
+Bluff	11	6294	396
+Bon Air	12	920	171
+Brighton Heights	13	7421	561
+Brookline	14	13160	943
+California-Kirkbride	15	803	136
+Carrick	16	10122	827
+Central Business District	17	4060	458
+Central Lawrenceville	18	4775	383
+Central Northside	19	2892	346
+Central Oakland	20	5822	659
+Chartiers City	21	560	172
+Chateau	22	3	3
+Crafton Heights	23	3964	385
+Crawford-Roberts	24	2225	330
+Duquesne Heights	25	2522	351
+East Allegheny	26	2095	284
+East Carnegie	27	610	120
+East Hills	28	2859	436
+East Liberty	29	5537	613
+Elliott	30	2491	406
+Esplen	31	309	118
+Fairywood	32	1181	238
+Fineview	33	1270	285
+Friendship	34	1840	268
+Garfield	35	3966	397
+Glen Hazel	36	716	231
+Greenfield	37	7690	699
+Hays	38	405	109
+Hazelwood	39	4257	667
+Highland Park	40	6810	870
+Homewood North	41	3371	470
+Homewood South	42	2276	320
+Homewood West	43	850	229
+Knoxville	44	4255	843
+Larimer	45	1641	323
+Lincoln Place	46	3499	484
+Lincoln-Lemington-Belmar	47	4955	471
+Lower Lawrenceville	48	2572	390
+Manchester	49	1944	257
+Marshall-Shadeland	50	6195	737
+Middle Hill	51	1760	287
+Morningside	52	3262	379
+Mount Oliver Borough	53	3399	463
+Mount Washington	54	8743	613
+Mt. Oliver	55	598	138
+New Homestead	56	973	105
+North Oakland	57	9602	628
+North Shore	58	205	67
+Northview Heights	59	1545	299
+Oakwood	60	1058	147
+Overbrook	61	3682	348
+Perry North	62	3771	399
+Perry South	63	3398	479
+Point Breeze	64	5414	334
+Point Breeze North	65	1732	261
+Polish Hill	66	1331	174
+Regent Square	67	1033	101
+Ridgemont	68	314	109
+Shadyside	69	13562	862
+Sheraden	70	5684	741
+South Oakland	71	2921	513
+South Shore	72	12	14
+South Side Flats	73	6292	748
+South Side Slopes	74	4583	516
+Spring Garden	75	840	152
+Spring Hill-City View	76	2456	424
+Squirrel Hill North	77	11336	768
+Squirrel Hill South	78	16042	890
+St. Clair	79	270	96
+Stanton Heights	80	4761	418
+Strip District	81	747	94
+Summer Hill	82	1191	92
+Swisshelm Park	83	1345	106
+Terrace Village	84	2292	264
+Troy Hill	85	2283	323
+Upper Hill	86	1884	408
+Upper Lawrenceville	87	2754	436
+West End	88	235	138
+West Oakland	89	1717	285
+Westwood	90	3537	408
+Windgap	91	1534	368
+Berkley	92	4000	23
+\.
+
+
+--
+-- PostgreSQL database dump complete
+--
+
